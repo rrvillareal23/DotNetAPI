@@ -1,5 +1,9 @@
+using System.Text.Json.Serialization;
+
 namespace SuperAPI.Models
 {
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum RpgClass
     {
         Cosmic = 1,
