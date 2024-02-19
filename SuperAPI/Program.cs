@@ -1,4 +1,6 @@
 global using SuperAPI.Models;
+global using SuperAPI.Services.CharacterService;
+
 using Microsoft.OpenApi.Models;
 
 
@@ -12,6 +14,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<ICharacterService, CharacterService>();
 
 var app = builder.Build();
 
