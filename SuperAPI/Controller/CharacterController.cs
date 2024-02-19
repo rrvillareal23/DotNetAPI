@@ -12,12 +12,20 @@ namespace SuperAPI.Controller
     {
         private static List<Character> characters = new List<Character>{
             new Character(),
-            new() { Name = "Hulk"}
+            new() { 
+                Id = 1, 
+                Name = "Hulk"
+                }
         };
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public ActionResult<List<Character>> Get(){
             return Ok(characters);
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<List<Character>> GetSingle(int id){
+            return Ok(characters.FirstOrDefault(c => c.Id == id));
         }
     }
 }
