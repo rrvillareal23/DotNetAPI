@@ -7,8 +7,8 @@ namespace SuperAPI.Services.CharacterService
 {
     public interface ICharacterService
     {
-        List<Character> GetAllCharacters();
-        Character GetCharacterById(int id);
-        List<Character> AddCharacter(Character newCharacter);
+        Task<ServiceResponse<List<Character>>> GetAllCharacters();
+        Task<ServiceResponse<Character>> GetCharacterById(int id);
+        Task<ServiceResponse<List<Character>>> AddCharacter(Character newCharacter);
     }
 }
