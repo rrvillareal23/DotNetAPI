@@ -48,5 +48,31 @@ namespace SuperAPI.Services.CharacterService
             serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharacterDto updatedCharacter)
+        {
+            var serviceResponse = new ServiceResponse<GetCharacterDto>();
+
+            try {
+            var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
+
+            character.Name = updatedCharacter.Name;
+            character.HitPoints = updatedCharacter.HitPoints;
+            character.Strength = updatedCharacter.Strength;
+            character.Defense = updatedCharacter.Defense;
+            character.Intelligence = updatedCharacter.Intelligence;
+            character.Evasiveness = updatedCharacter.Evasiveness;
+            character.Class = updatedCharacter.Class;
+
+            serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
+            } catch (Exception ex) {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+                
+            }
+
+            return serviceResponse;
+
+        }
     }
 }

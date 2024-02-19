@@ -32,5 +32,10 @@ namespace SuperAPI.Controller
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter (AddCharacterDto newCharacter){
             return Ok(await _characterService.AddCharacter(newCharacter));
         }
+
+        [HttpPut]
+        public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> UpdateCharacter (UpdateCharacterDto updatedCharacter){
+            return Ok(await _characterService.UpdateCharacter(updatedCharacter));
+        }
     }
 }
